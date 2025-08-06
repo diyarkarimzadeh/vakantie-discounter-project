@@ -1,69 +1,52 @@
-# React + TypeScript + Vite
+# Click the Fox! Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A fun and interactive game where players try to click on the fox among a grid of dog images within a limited time. The game tracks the player’s score and time left, and saves the score locally.
 
-Currently, two official plugins are available:
+## Introduction
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Gameplay
 
-## Expanding the ESLint configuration
+- The player is presented with a 3x3 grid of images, mostly dogs and one fox.
+- The goal is to click on the fox image as quickly and as many times as possible before time runs out.
+- Each correct click on the fox increases the score; clicking a dog decreases the score.
+- The game runs for a fixed time period.
+- The final score, along with player’s name and date, is saved locally and can be reviewed on a scores page.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## Features
 
-```js
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Dynamic image loading and preloading for smooth gameplay.
+- Score and countdown timer display.
+- Name input before starting the game.
+- Local storage of scores with date and player names.
 
-      // Remove tseslint.configs.recommended and replace with this
-      ...tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      ...tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      ...tseslint.configs.stylisticTypeChecked,
+## Technologies Used
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- React with TypeScript
+- Tailwind CSS for styling
+- React Router for navigation
+- Vitest and React Testing Library for testing
+- Browser LocalStorage for saving scores
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## Setup and Installation
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+Step-by-step instructions to set up the project locally:
 
-export default tseslint.config([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+1. Install dependencies:
+
+   npm install
+
+2. Start the development server:
+
+   npm run dev
+
+3. Open the application in your browser:
+
+   http://localhost:5173/
+
+## Testing
+
+1. Run the tests:
+
+   npm run test
+
+2. Tests cover hooks, components like Loading, ScoreBoard, Welcome, and integration flows.
